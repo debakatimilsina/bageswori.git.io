@@ -477,6 +477,88 @@
             .search-btn { -webkit-user-select: none; user-select: none; }
             .copy-table-btn { -webkit-user-select: none; user-select: none; }
         }
+        /* Virtual Scrolling Table Styles */
+        .virtual-table-container {
+            width: 100%;
+            margin: 16px 0;
+        }
+        .virtual-table-wrapper {
+            position: relative;
+            max-height: 600px;
+            overflow-y: auto;
+            overflow-x: auto;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            background: var(--bg-primary);
+            -webkit-overflow-scrolling: touch;
+        }
+        .virtual-scroller {
+            display: flex;
+            flex-direction: column;
+        }
+        .virtual-table-header {
+            display: flex;
+            background: var(--bg-tertiary);
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .virtual-table-header-cell {
+            flex: 1;
+            padding: 10px 12px;
+            border-right: 1px solid var(--border-color);
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            min-width: 100px;
+            color: var(--text-primary);
+        }
+        .virtual-table-header-cell:last-child {
+            border-right: none;
+        }
+        .virtual-table-row {
+            display: flex;
+            border-bottom: 1px solid var(--border-color);
+            transition: background-color 0.1s ease;
+        }
+        .virtual-table-row:hover {
+            background: var(--bg-secondary);
+        }
+        .virtual-table-cell {
+            flex: 1;
+            padding: 10px 12px;
+            border-right: 1px solid var(--border-color);
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            min-width: 100px;
+            color: var(--text-primary);
+            cursor: pointer;
+        }
+        .virtual-table-cell:last-child {
+            border-right: none;
+        }
+        .virtual-table-cell:hover {
+            overflow: visible;
+            white-space: normal;
+            word-wrap: break-word;
+            background: var(--bg-secondary);
+            z-index: 5;
+            max-width: 400px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+        .virtual-table-cell.table-cell-truncated {
+            max-width: 200px;
+        }
+        .virtual-spacer {
+            pointer-events: none;
+        }
+        .virtual-visible-rows {
+            display: flex;
+            flex-direction: column;
+        }
         .mobile-menu-btn { display: none; background: transparent; border: none; color: var(--text-primary); font-size: 24px; cursor: pointer; padding: 4px; }
         /* Protection styles: disable selection, image/link interaction and printing for protected content */
         .nav-item-protect { margin-left: 6px; font-size: 12px; color: var(--accent-purple); }
@@ -599,13 +681,12 @@ window.noteU12Content = `# Advanced JavaScript\n\n## Closures\nClosures capture 
 window.noteU12Meta = { name: "JS Advanced", emoji: "📗", password: null, protection: "YES" };
 
 window.noteU13Content = `# Security Patterns (Locked)\n\n## Auth Table\n\n| Method | Level |\n|--------|-------|\n| JWT | High |\n| OAuth | Very High |`;
-window.noteU13Meta = { name: "Security", emoji: "🔒", password: "secret123", protection: "YES" };
+window.noteU13Meta = { name: "Security", emoji: "🔒", password: null, protection: "NO" };
 
-window.noteU21Content = `# React Fundamentals\n\n## Components\nBuilding blocks of React.\n\n## Comparison\n\n| Feature | Class | Functional |\n|---------|-------|------------|\n| State | this.state | useState |\n| Lifecycle | methods | useEffect |\n\n## Resources\n\n| Resource | Link | Type |\n|----------|------|------|\n| Official Docs | https://react.dev | External |\n| Tutorial | https://react.dev/learn | External |\n| Community | https://github.com/facebook/react | Repository |\n| Internet | [IMAGES/ganesh.jpg] | Image |`;
-window.noteU21Meta = { name: "React Basics", emoji: "⚛️", password: null, protection: "YES" };
+
 
 window.noteU22Content = `# State Management\n\n## Solutions\n\n| Library | Size | Learning |\n|---------|------|----------|\n| Redux | Large | Steep |\n| MobX | Medium | Medium |\n| Zustand | Small | Easy |\n\n## Gallery\n\n| Title | Caption | Subcaption | URL |\n|-------|---------|------------|-----|\n| React Logo | Official React brand | Modern UI library | https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1024px-React-icon.svg.png |\n| Vue Framework | Progressive framework | Alternative to React | https://vuejs.org/images/logo.png |\n| Angular Icon | Google framework | Complete solution | https://angular.io/assets/images/logos/angular/angular.svg |`;
-window.noteU22Meta = { name: "State Mgmt", emoji: "🔄", password: "123", protection: "YES" };
+window.noteU22Meta = { name: "State Mgmt", emoji: "🔄", password: null, protection: "NO" };
 
 window.noteV11Content = `# Python Basics\n\n## Comparison\n\n| Feature | Python | Java |\n|---------|--------|------|\n| Typing | Dynamic | Static |\n| Syntax | Clean | Verbose |`;
 window.noteV11Meta = { name: "Python Intro", emoji: "🐍", password: null, protection: "NO" };
@@ -614,7 +695,7 @@ window.noteV12Content = `# Python OOP\n\n## Concepts\n\n| Concept | Description 
 window.noteV12Meta = { name: "Python OOP", emoji: "🎯", password: null, protection: "NO" };
 
 window.noteV13Content = `# API Keys (Locked)\n\n## Keys\n\n| Env | Level |\n|-----|-------|\n| Prod | Full |`;
-window.noteV13Meta = { name: "API Keys", emoji: "🔐", password: "123", protection: "YES" };
+window.noteV13Meta = { name: "API Keys", emoji: "🔐", password: null, protection: "NO" };
 
 window.noteV21Content = `# Data Science\n\n## Libraries\n\n| Library | Purpose | Performance |\n|---------|---------|-------------|\n| NumPy | Arrays | Excellent |\n| Pandas | DataFrames | Good |\n| Matplotlib | Plotting | Good |`;
 window.noteV21Meta = { name: "Data Science", emoji: "📊", password: null, protection: "NO" };
@@ -805,7 +886,7 @@ const TruncationManager = {
     updateUI() {
         const btn = document.getElementById('truncationToggle');
         if (AppState.truncateTableCells) {
-            btn.textContent = '📋 Full Text';
+            btn.textContent = '📋 Full Table';
             btn.classList.remove('active');
         } else {
             btn.textContent = '📋 Truncated';
@@ -910,11 +991,91 @@ async function initPyodide() {
 async function renderMarkdown(content) {
     if (AppState.pyodide) {
         try {
-            AppState.pyodide.globals.set('markdown_input', content);
+            // Process JSON blocks first
+            const processedContent = convertJsonBlocksToTables(content);
+            AppState.pyodide.globals.set('markdown_input', processedContent);
             return (await AppState.pyodide.runPythonAsync(`convert_markdown(markdown_input)`)).toJs();
-        } catch (e) { return fallbackRender(content); }
+        } catch (e) { return fallbackRender(convertJsonBlocksToTables(content)); }
     }
-    return fallbackRender(content);
+    return fallbackRender(convertJsonBlocksToTables(content));
+}
+
+function convertJsonBlocksToTables(content) {
+    // Match JSON blocks (arrays or objects)
+    const jsonBlockRegex = /(\[[\s\S]*?\n\]|\{[\s\S]*?\n\})/g;
+    
+    return content.replace(jsonBlockRegex, (match) => {
+        try {
+            const trimmedMatch = match.trim();
+            // Check if it's a valid JSON
+            const parsed = JSON.parse(trimmedMatch);
+            
+            // Convert array of objects to markdown table
+            if (Array.isArray(parsed) && parsed.length > 0 && typeof parsed[0] === 'object' && parsed[0] !== null) {
+                return jsonArrayToMarkdownTable(parsed);
+            }
+            // Convert object to markdown table
+            else if (typeof parsed === 'object' && parsed !== null && !Array.isArray(parsed)) {
+                return jsonObjectToMarkdownTable(parsed);
+            }
+        } catch (e) {
+            // Not valid JSON or not a structure we convert, return as-is
+        }
+        return match;
+    });
+}
+
+function jsonArrayToMarkdownTable(arr) {
+    if (arr.length === 0) return '';
+    
+    // Get all unique keys from all objects in the array
+    const allKeys = new Set();
+    arr.forEach(item => {
+        if (typeof item === 'object' && item !== null) {
+            Object.keys(item).forEach(key => allKeys.add(key));
+        }
+    });
+    
+    if (allKeys.size === 0) return '';
+    
+    const headers = Array.from(allKeys);
+    
+    // Build markdown table
+    let table = '| ' + headers.join(' | ') + ' |\n';
+    table += '|' + headers.map(() => '---|').join('') + '\n';
+    
+    arr.forEach(item => {
+        if (typeof item === 'object' && item !== null) {
+            const row = headers.map(header => {
+                const value = item[header];
+                if (value === null || value === undefined) return '';
+                if (typeof value === 'string') return value.replace(/\|/g, '\\|').replace(/\n/g, ' ');
+                return String(value).replace(/\|/g, '\\|').replace(/\n/g, ' ');
+            });
+            table += '| ' + row.join(' | ') + ' |\n';
+        }
+    });
+    
+    return table;
+}
+
+function jsonObjectToMarkdownTable(obj) {
+    // Convert single object to a two-column table (key-value pairs)
+    if (typeof obj !== 'object' || obj === null || Array.isArray(obj)) return '';
+    
+    const keys = Object.keys(obj);
+    if (keys.length === 0) return '';
+    
+    let table = '| Key | Value |\n';
+    table += '|---|---|\n';
+    
+    keys.forEach(key => {
+        const value = obj[key];
+        const displayValue = value === null || value === undefined ? '' : String(value).replace(/\|/g, '\\|').replace(/\n/g, ' ');
+        table += `| ${key} | ${displayValue} |\n`;
+    });
+    
+    return table;
 }
 
 function fallbackRender(content) {
@@ -1125,25 +1286,6 @@ function displayRenderedContent(note, rendered, isCombined = false, notesInCombi
     const toc = isCombined && notesInCombined.length ? generateCombinedTOC(html, notesInCombined) : generateCustomTOC(html);
     area.innerHTML = `<header class="content-header"><h1 class="content-title"><span class="content-title-emoji">${note.meta.emoji}</span>${note.meta.name}</h1><div class="content-meta">${note.meta.description || (isCombined ? `${notesInCombined.length} notes combined` : 'Individual note')}</div></header>${toc ? `<nav class="toc-container" id="toc-container"><div class="toc-title">📋 Table of Contents</div><ul class="toc-list${isCombined ? '' : ' single-column'}">${toc}</ul></nav>` : ''}<div class="markdown-body" id="markdownBody">${html}</div>`;
 
-    // Process table cells for internal links in Link column only
-    const tables = area.querySelectorAll('table');
-    for (const table of tables) {
-        const headers = Array.from(table.querySelectorAll('th')).map(th => th.textContent.trim());
-        const linkIndex = headers.indexOf('Link');
-        if (linkIndex !== -1) {
-            const rows = table.querySelectorAll('tbody tr');
-            for (const row of rows) {
-                const cells = row.querySelectorAll('td');
-                if (cells[linkIndex]) {
-                    const text = cells[linkIndex].textContent.trim();
-                    if (text.match(/\.(jpg|jpeg|png|gif|pdf|docx|ppt|pptx|txt|mp4|avi|mov|mp3|wav)$/i) || text.includes('/') || text.startsWith('IMAGES/')) {
-                        cells[linkIndex].innerHTML = `<a href="${text}" target="_blank">${text}</a>`;
-                    }
-                }
-            }
-        }
-    }
-
     // Determine protection state: either note.meta.protection or any note in combined
     const metaObj = note && note.meta ? note.meta : {};
     let isProtected = metaObj.protection === 'YES';
@@ -1291,13 +1433,25 @@ function enforceProtection(area, isProtected) {
 // Table Filtering & Media Gallery
 // ========================================
 function detectMediaTable(table) {
+    // Only treat a table as a media gallery when media-like values
+    // appear in a column that is explicitly a media column (e.g. url, media, image, src, thumbnail, file, path)
     const mediaExtensions = /\.(jpg|jpeg|png|gif|nef|mp4|mp3|mov|webm|webp)(\?|$|#)/i;
+    const allowedMediaHeaders = new Set(['url', 'media', 'image', 'src', 'thumbnail', 'file', 'path']);
+    const headers = Array.from(table.querySelectorAll('th')).map(th => th.textContent.trim().toLowerCase());
     const rows = table.querySelectorAll('tbody tr, tr:not(:first-child)');
     if (rows.length === 0) return false;
+
     for (const row of rows) {
         const cells = row.querySelectorAll('td');
-        for (const cell of cells) {
-            if (mediaExtensions.test(cell.textContent.trim())) return true;
+        for (let i = 0; i < cells.length; i++) {
+            const cell = cells[i];
+            const cellText = cell.textContent.trim();
+            if (!cellText) continue;
+            // Only consider this cell a media indicator if its column header matches allowed media headers
+            const header = headers[i] || '';
+            if (allowedMediaHeaders.has(header) && mediaExtensions.test(cellText)) {
+                return true;
+            }
         }
     }
     return false;
@@ -1359,13 +1513,189 @@ function convertToMediaGallery(table) {
     return gallery;
 }
 
+// ========================================
+// Virtual Scrolling Manager
+// ========================================
+const VirtualScrolling = {
+    tables: new Map(),
+    
+    createVirtualTable(table, headers, rows) {
+        const container = document.createElement('div');
+        container.className = 'virtual-table-container';
+        
+        // Create wrapper
+        const wrapper = document.createElement('div');
+        wrapper.className = 'virtual-table-wrapper';
+        wrapper.style.maxHeight = '600px';
+        wrapper.style.overflow = 'auto';
+        wrapper.style.border = '1px solid var(--border-color)';
+        wrapper.style.borderRadius = 'var(--radius-md)';
+        
+        // Create virtual scroller
+        const scroller = document.createElement('div');
+        scroller.className = 'virtual-scroller';
+        
+        // Estimate row height (in px)
+        const rowHeight = 40;
+        const visibleRows = Math.ceil(600 / rowHeight) + 2; // +2 for buffer
+        
+        // Create header (fixed)
+        const headerRow = document.createElement('div');
+        headerRow.className = 'virtual-table-header';
+        headerRow.style.display = 'flex';
+        headerRow.style.backgroundColor = 'var(--bg-tertiary)';
+        headerRow.style.fontWeight = '600';
+        headerRow.style.position = 'sticky';
+        headerRow.style.top = '0';
+        headerRow.style.zIndex = '10';
+        headerRow.style.borderBottom = '1px solid var(--border-color)';
+        
+        headers.forEach(header => {
+            const cell = document.createElement('div');
+            cell.className = 'virtual-table-header-cell';
+            cell.style.flex = '1';
+            cell.style.padding = '10px 12px';
+            cell.style.borderRight = '1px solid var(--border-color)';
+            cell.style.textOverflow = 'ellipsis';
+            cell.style.overflow = 'hidden';
+            cell.style.minWidth = '100px';
+            cell.textContent = header;
+            headerRow.appendChild(cell);
+        });
+        
+        // Create spacer for virtual scrolling
+        const spacer = document.createElement('div');
+        spacer.className = 'virtual-spacer';
+        
+        // Create visible rows container
+        const visibleContainer = document.createElement('div');
+        visibleContainer.className = 'virtual-visible-rows';
+        
+        scroller.appendChild(headerRow);
+        scroller.appendChild(spacer);
+        scroller.appendChild(visibleContainer);
+        
+        wrapper.appendChild(scroller);
+        container.appendChild(wrapper);
+        
+        // Virtual scrolling logic
+        let startIndex = 0;
+        let scrollHandler = null;
+        
+        const renderRows = () => {
+            visibleContainer.innerHTML = '';
+            const endIndex = Math.min(startIndex + visibleRows, rows.length);
+            
+            // Add top spacer
+            if (startIndex > 0) {
+                const topSpacer = document.createElement('div');
+                topSpacer.style.height = (startIndex * rowHeight) + 'px';
+                visibleContainer.appendChild(topSpacer);
+            }
+            
+            // Render visible rows
+            for (let i = startIndex; i < endIndex; i++) {
+                const row = rows[i];
+                const rowEl = document.createElement('div');
+                rowEl.className = 'virtual-table-row';
+                rowEl.style.display = 'flex';
+                rowEl.style.borderBottom = '1px solid var(--border-color)';
+                rowEl.dataset.rowIndex = i;
+                
+                row.forEach((cell, cellIdx) => {
+                    const cellEl = document.createElement('div');
+                    cellEl.className = 'virtual-table-cell';
+                    cellEl.style.flex = '1';
+                    cellEl.style.padding = '10px 12px';
+                    cellEl.style.borderRight = '1px solid var(--border-color)';
+                    cellEl.style.textOverflow = 'ellipsis';
+                    cellEl.style.overflow = 'hidden';
+                    cellEl.style.whiteSpace = 'nowrap';
+                    cellEl.style.minWidth = '100px';
+                    cellEl.title = cell.textContent;
+                    cellEl.textContent = cell.textContent || '';
+                    TruncationManager.applyToCell(cellEl);
+                    rowEl.appendChild(cellEl);
+                });
+                
+                visibleContainer.appendChild(rowEl);
+            }
+            
+            // Add bottom spacer
+            if (endIndex < rows.length) {
+                const bottomSpacer = document.createElement('div');
+                bottomSpacer.style.height = ((rows.length - endIndex) * rowHeight) + 'px';
+                visibleContainer.appendChild(bottomSpacer);
+            }
+        };
+        
+        // Handle scroll events with throttling
+        let lastScroll = 0;
+        scrollHandler = () => {
+            const now = Date.now();
+            if (now - lastScroll < 50) return; // Throttle to 50ms
+            lastScroll = now;
+            
+            const scrollTop = wrapper.scrollTop;
+            const newStartIndex = Math.floor(scrollTop / rowHeight);
+            if (newStartIndex !== startIndex) {
+                startIndex = newStartIndex;
+                renderRows();
+            }
+        };
+        
+        wrapper.addEventListener('scroll', scrollHandler, { passive: true });
+        
+        // Initial render
+        renderRows();
+        
+        // Update total height for scrollbar
+        spacer.style.height = (rows.length * rowHeight) + 'px';
+        
+        return { container, wrapper, render: renderRows };
+    },
+    
+    addStyles() {
+        if (document.getElementById('virtual-scrolling-styles')) return;
+        const style = document.createElement('style');
+        style.id = 'virtual-scrolling-styles';
+        style.textContent = `
+            .virtual-table-container { width: 100%; }
+            .virtual-table-wrapper { position: relative; }
+            .virtual-scroller { display: flex; flex-direction: column; }
+            .virtual-table-header { display: flex; }
+            .virtual-table-row { display: flex; }
+            .virtual-table-header-cell, .virtual-table-cell { word-wrap: break-word; }
+        `;
+        document.head.appendChild(style);
+    }
+};
+
+VirtualScrolling.addStyles();
+
 function setupTableFilters() {
     const body = document.getElementById('markdownBody'); if (!body) return;
     body.querySelectorAll('table').forEach((table, idx) => {
         const headers = Array.from(table.querySelectorAll('th')).map(th => th.textContent.trim());
         if (headers.length === 0) return;
         
-        // Apply truncation to all table cells
+        // Extract table data for virtual scrolling (if large)
+        const tableRows = Array.from(table.querySelectorAll('tbody tr, tr:not(:first-child)')).map(row => 
+            Array.from(row.querySelectorAll('td, th')).map(cell => ({ textContent: cell.textContent.trim(), element: cell }))
+        );
+        
+        // Use virtual scrolling for tables with >20 rows
+        if (tableRows.length > 20) {
+            const virtualTable = VirtualScrolling.createVirtualTable(table, headers, tableRows.map(row => row.map(cell => cell.textContent)));
+            table.parentNode.insertBefore(virtualTable.container, table);
+            table.style.display = 'none';
+            
+            // Store reference for later operations
+            VirtualScrolling.tables.set(`table-${idx}`, { virtual: true, container: virtualTable.container, originalTable: table, headers, rows: tableRows });
+            return;
+        }
+        
+        // Apply truncation to all table cells (for non-virtualized tables)
         table.querySelectorAll('td').forEach(cell => {
             TruncationManager.applyToCell(cell);
             // Add click handler to toggle full text on click
@@ -1459,11 +1789,21 @@ function setupTableFilters() {
 }
 
 function processTableLinks(table) {
-    const urlRegex = /^(https?:\/\/[^\s]+)$/i;
+    // Match both HTTP URLs and relative file paths (images, docs, pdfs, etc.)
+    const urlRegex = /^(https?:\/\/[^\s]+|[A-Za-z0-9_./\-]+\.(jpg|jpeg|png|gif|pdf|docx|pptx|ppt|doc|xls|xlsx|txt|zip|rar|csv|mp4|webm|mp3|wav|svg)?)$/i;
     table.querySelectorAll('td, th').forEach(cell => {
+        // If the cell already contains an anchor, ensure it opens in a new tab
+        const existingA = cell.querySelector('a');
+        if (existingA) {
+            existingA.setAttribute('target', '_blank');
+            existingA.setAttribute('rel', 'noopener noreferrer');
+            return;
+        }
+
         const text = cell.textContent.trim();
         if (urlRegex.test(text)) {
             const truncated = truncateUrl(text);
+            // Always open table links in a new tab
             cell.innerHTML = `<a href="${text}" target="_blank" rel="noopener noreferrer" title="${text}">${truncated}</a>`;
         }
     });
@@ -2025,28 +2365,49 @@ function validatePassword() {
 }
 
 // ========================================
-// Search
+// Search with Optimized Highlighting
 // ========================================
+let searchAnimationFrame = null;
+
 function performSearch(query) {
     const body = document.getElementById('markdownBody');
     if (!body || !query.trim()) { clearSearch(); return; }
+    
+    // Cancel previous animation frame if any
+    if (searchAnimationFrame) cancelAnimationFrame(searchAnimationFrame);
+    
+    // Restore original content first
     body.innerHTML = AppState.originalContent;
     addHeadingIds();
     processSmartLinks();
     processMediaGalleries();
     AppState.searchMatches = [];
     AppState.currentMatchIndex = -1;
-    const isNepali = NepaliNormalizer.isDevanagari(query);
-    if (isNepali) highlightDevanagari(body, query);
-    else highlightMatches(body, query.toLowerCase());
-    updateSearchUI();
-    if (AppState.searchMatches.length > 0) navigateToMatch(0);
+    
+    // Use requestAnimationFrame to avoid blocking UI during search
+    searchAnimationFrame = requestAnimationFrame(() => {
+        try {
+            const isNepali = NepaliNormalizer.isDevanagari(query);
+            if (isNepali) highlightDevanagari(body, query);
+            else highlightMatches(body, query.toLowerCase());
+            updateSearchUI();
+            if (AppState.searchMatches.length > 0) navigateToMatch(0);
+        } catch (e) {
+            console.error('Search error:', e);
+        }
+        searchAnimationFrame = null;
+    });
 }
 
 function highlightDevanagari(el, query) {
     const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null, false);
-    const nodes = []; while (walker.nextNode()) nodes.push(walker.currentNode);
+    const nodes = []; 
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    
     const normQuery = NepaliNormalizer.normalize(query.toLowerCase());
+    const nodesToReplace = [];
+    
+    // First pass: collect all matches
     for (const node of nodes) {
         const text = node.textContent, normText = NepaliNormalizer.normalize(text.toLowerCase());
         const matches = [];
@@ -2060,42 +2421,70 @@ function highlightDevanagari(el, query) {
             start = found + 1;
         }
         if (matches.length > 0) {
-            const frag = document.createDocumentFragment();
-            let last = 0;
-            for (const m of matches) {
-                if (m.start > last) frag.appendChild(document.createTextNode(text.substring(last, m.start)));
-                const mark = document.createElement('mark'); mark.className = 'search-highlight';
-                mark.textContent = text.substring(m.start, m.end);
-                mark.dataset.matchIndex = AppState.searchMatches.length;
-                AppState.searchMatches.push(mark);
-                frag.appendChild(mark);
-                last = m.end;
-            }
-            if (last < text.length) frag.appendChild(document.createTextNode(text.substring(last)));
-            node.parentNode.replaceChild(frag, node);
+            nodesToReplace.push({ node, text, matches });
         }
+    }
+    
+    // Second pass: replace nodes in batch (more efficient)
+    for (const item of nodesToReplace) {
+        const frag = document.createDocumentFragment();
+        let last = 0;
+        for (const m of item.matches) {
+            if (m.start > last) frag.appendChild(document.createTextNode(item.text.substring(last, m.start)));
+            const mark = document.createElement('mark'); 
+            mark.className = 'search-highlight';
+            mark.textContent = item.text.substring(m.start, m.end);
+            mark.dataset.matchIndex = AppState.searchMatches.length;
+            AppState.searchMatches.push(mark);
+            frag.appendChild(mark);
+            last = m.end;
+        }
+        if (last < item.text.length) frag.appendChild(document.createTextNode(item.text.substring(last)));
+        item.node.parentNode.replaceChild(frag, item.node);
     }
 }
 
 function highlightMatches(el, query) {
     const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null, false);
-    const nodes = []; while (walker.nextNode()) nodes.push(walker.currentNode);
+    const nodes = []; 
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    
+    const regex = new RegExp(query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
+    const nodesToReplace = [];
+    
+    // First pass: collect nodes with matches
     for (const node of nodes) {
         const text = node.textContent;
         if (text.toLowerCase().includes(query)) {
-            const frag = document.createDocumentFragment();
-            const regex = new RegExp(query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
-            let last = 0, match;
+            regex.lastIndex = 0; // Reset regex
+            const matches = [];
+            let match;
             while ((match = regex.exec(text)) !== null) {
-                if (match.index > last) frag.appendChild(document.createTextNode(text.substring(last, match.index)));
-                const mark = document.createElement('mark'); mark.className = 'search-highlight';
-                mark.textContent = match[0]; mark.dataset.matchIndex = AppState.searchMatches.length;
-                AppState.searchMatches.push(mark); frag.appendChild(mark);
-                last = regex.lastIndex;
+                matches.push({ index: match.index, length: match[0].length, text: match[0] });
             }
-            if (last < text.length) frag.appendChild(document.createTextNode(text.substring(last)));
-            node.parentNode.replaceChild(frag, node);
+            if (matches.length > 0) {
+                nodesToReplace.push({ node, text, matches });
+            }
         }
+    }
+    
+    // Second pass: replace nodes in batch
+    for (const item of nodesToReplace) {
+        const frag = document.createDocumentFragment();
+        let last = 0;
+        
+        for (const m of item.matches) {
+            if (m.index > last) frag.appendChild(document.createTextNode(item.text.substring(last, m.index)));
+            const mark = document.createElement('mark'); 
+            mark.className = 'search-highlight';
+            mark.textContent = m.text;
+            mark.dataset.matchIndex = AppState.searchMatches.length;
+            AppState.searchMatches.push(mark);
+            frag.appendChild(mark);
+            last = m.index + m.length;
+        }
+        if (last < item.text.length) frag.appendChild(document.createTextNode(item.text.substring(last)));
+        item.node.parentNode.replaceChild(frag, item.node);
     }
 }
 
@@ -2201,9 +2590,22 @@ function setupEventListeners() {
     document.getElementById('lightboxNext').addEventListener('click', () => navigateLightbox(1));
     document.getElementById('lightboxOverlay').addEventListener('click', e => { if (e.target === e.currentTarget) closeLightbox(); });
     
-    // Search
+    // Search with optimized debouncing
     let searchTimeout;
-    document.getElementById('searchInput').addEventListener('input', e => { clearTimeout(searchTimeout); searchTimeout = setTimeout(() => performSearch(e.target.value), 300); });
+    let lastSearchQuery = '';
+    document.getElementById('searchInput').addEventListener('input', e => { 
+        clearTimeout(searchTimeout);
+        const query = e.target.value;
+        
+        // Skip if query hasn't significantly changed
+        if (query === lastSearchQuery) return;
+        lastSearchQuery = query;
+        
+        // Use longer debounce (300ms) for better performance
+        searchTimeout = setTimeout(() => {
+            performSearch(query);
+        }, 300);
+    }, { passive: true });
     document.getElementById('searchPrev').addEventListener('click', navigatePrevMatch);
     document.getElementById('searchNext').addEventListener('click', navigateNextMatch);
     document.getElementById('clearSearch').addEventListener('click', clearSearch);
@@ -2349,5 +2751,8 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', init);
     </script>
       <script src="datanoteU14.js"></script>      
+      <script src="datanoteU15.js"></script>      
+      <script src="datanoteU16.js"></script>      
+      <script src="datanoteU21.js"></script>      
 </body>
 </html>
